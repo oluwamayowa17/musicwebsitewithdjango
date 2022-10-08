@@ -1,0 +1,39 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'frontend/img/bg-img/breadcumb.jpg' %});">
+    <div class="bradcumbContent">
+        <p>See what’s new</p>
+        <h2>About Us</h2>
+    </div>
+</section>
+	<section class="contact-area section-padding-100-0 mb-5">
+		<div class="container">
+			<div class="row">
+				{% if about %}
+				{% for a in about %}
+				<div class="col-sm-6 mb-3">
+					<div>
+						<img src="{{a.image.url}}" alt="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="about-wrap">
+						<h2>EVERYTHING MUSIC</h2>
+						<p>{{a.content}}</p>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	
+
+{% endblock %}

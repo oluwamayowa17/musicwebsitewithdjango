@@ -1,0 +1,33 @@
+{% if messages %}
+{% for m in messages %}
+  <div class="alert alert-success">{{ m }}</div>
+{% endfor %}
+{% endif %}
+
+
+{% for hidden  in form.hidden_fields %}
+  {% if hidden.errors %}
+  {% for errors in hidden.errors %}
+        <div class="alert alert-danger">{{ errors }}</div>
+  {% endfor %}
+{% endif %}
+
+<div class="form-group">
+{{ hidden }}
+</div>
+{% endfor %}
+
+
+{% for field in form.visible_fields %}
+  {% if field.errors %}
+    {% for err in field.errors %}
+          <div class="alert alert-danger">{{ err }}</div>
+    {% endfor %}
+  {% endif %}
+  <div class="form-group">
+    {{ field.label_tag }}
+    {{ field }}
+  </div>
+{% endfor %}
+
+{% csrf_token %}

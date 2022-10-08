@@ -1,0 +1,49 @@
+<ul class="nav flex-column">
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark active" href="{% url 'everythingmusic:element' %}"><strong>Dashboard</strong></a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="{% url 'everythingmusic:add_artist' %}">Create Artist</a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="{% url 'everythingmusic:add_album' %}">Create Album</a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="{% url 'everythingmusic:add_song' %}">Add Song</a>
+    </li>
+    <li class="nav-item border-bottom"> 
+        <a class="nav-link text-dark" href="{% url 'everythingmusic:view_profile' %}">View Songs</a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="#">Change Password</a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="#">{{ request.user.username }}</a>
+    </li>
+    <li class="nav-item border-bottom">
+        <a class="nav-link text-dark" href="#logoutModal" data-toggle="modal">Logout</a>
+    </li>
+</ul>
+
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        Are you sure you want to logout?
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="{% url 'everythingmusic:logout_view' %}" class="btn btn-primary">Logout</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+    

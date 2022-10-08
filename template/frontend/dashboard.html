@@ -1,0 +1,121 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'frontend/img/bg-img/breadcumb2.jpg' %});">
+    <div class="bradcumbContent">
+        <p >WELCOME,<span style="font-size: larger; font-weight:bolder; text-transform: capitalize; color: black;" >{{ request.user.username }}</span></p>
+        <h2>DASHBOARD</h2>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Elements Area Start ##### -->
+<section class="elements-area mt-30 section-padding-100-0">
+    <div class="container-fliud">
+        <div class="row">
+            <div class="col-md-3">
+            <div class="col-12">
+                <!-- <div class="elements-title mb-70">
+                    <h2>WELCOME, Tim</h2>
+                </div>
+              
+                <div class="oneMusic-buttons-area mb-100">
+                    <p>Would you like to see what's new? </p>
+                    <a href="#" class="btn oneMusic-btn m-2">Send <i class="fa fa-angle-double-right"></i></a>
+                    <a href="#" class="btn oneMusic-btn btn-2 m-2">Click Here <i class="fa fa-angle-double-right"></i></a>
+                </div> -->
+                {% include 'frontend/dashboard-sidebar.html' %}
+            </div>
+
+            <!-- ========== Progress Bars & Accordions ========== -->
+           
+
+            <!-- ##### Accordians ##### -->
+            
+
+            <!-- ##### Tabs ##### -->
+            
+            </div>
+            <div class="col-md-9">
+            <!-- ========== Loaders ========== -->
+            <div class="col-12">
+                <div class="elements-title text-center mb-70">
+                    <h2>Overview</h2>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <!-- Loaders Area Start -->
+                <div class="our-skills-area">
+                    <div class="row">
+
+                        <!-- Single Skills Area -->
+                        <div class="col-12 col-sm-6 col-lg-6">
+                            <div class="single-skils-area mb-100">
+                                <div id="circle" class="circle" data-value="1">
+                                    <div class="skills-text">
+                                        {% if list %}
+                                        <span>{{list.album_name}}</span>
+                                        {% endif %}
+                                        <p> Albums</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Skills Area -->
+                        <div class="col-12 col-sm-6 col-lg-6">
+                            <div class="single-skils-area mb-100">
+                                <div id="circle2" class="circle" data-value="1">
+                                    <div class="skills-text">
+                                        <span>24</span>
+                                        <p> Song</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Skills Area -->
+                        <div class="col-12 col-sm-6 col-lg-6">
+                            <div class="single-skils-area mb-100">
+                                <div id="circle3" class="circle" data-value="1">
+                                    <div class="skills-text">
+                                        <span>10.3K</span>
+                                        <p>Likes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Skills Area -->
+                        <div class="col-12 col-sm-6 col-lg-6">
+                            <div class="single-skils-area mb-100">
+                                <div id="circle4" class="circle" data-value="1">
+                                    <div class="skills-text">
+                                        <span>398</span>
+                                        <p>Comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== Milestones ========== -->
+           
+
+            
+            <!-- ========== Icon Boxes ========== -->
+
+        </div>              
+        </div>
+    </div>
+</section>
+<!-- ***** Elements Area End ***** -->
+{% endblock %}

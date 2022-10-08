@@ -1,0 +1,60 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'frontend/img/bg-img/breadcumb.jpg' %});">
+        <div class="bradcumbContent">
+            <p>See what’s new</p>
+            <h2>ALL SONGS</h2>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Latest Albums Area Start ##### -->
+    
+    <!-- ##### Latest Albums Area End ##### -->
+
+    <!-- ##### Buy Now Area Start ##### -->
+    <section class="oneMusic-buy-now-area has-fluid section-padding-100 mt-5">
+        <div class="container-fluid">
+            
+
+            <div class="row">
+
+                <!-- Single Album Area -->
+                {% if song %}
+                    {% for s in song %}
+                    <div class=" col-12 col-sm-4 col-md-3 col-lg-2 ">
+                        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+                            <div class="album-thumb">
+                                <img src="{{s.image.url}}" alt="">
+                                <!-- Play Icon -->
+                                <div class="play-icon">
+                                    <a href="{% url 'everythingmusic:play_song' s.id %}"><span class="icon-play-button"></span></a>
+                                </div>
+                            </div>
+
+                            <!-- <small><a href="{{s.get_audio}}" download style="font-size: small;">Play</a></small> -->
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>{{s.artist}}</h5>
+                                </a>
+                                <p>{{s.song_name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                
+
+            </div>
+        </div>
+    </section>
+   
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'frontend/img/bg-img/breadcumb2.jpg' %});">
+    <div class="bradcumbContent">
+        <p >WELCOME,<span style="font-size: larger; font-weight:bolder; text-transform: capitalize; color: black;" >{{ request.user.username }}</span></p>
+        <h2>DASHBOARD</h2>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Elements Area Start ##### -->
+<section class="elements-area mt-30 section-padding-100-0">
+    <div class="container-fliud">
+        <div class="row">
+            <div class="col-md-3">
+            <div class="col-12">
+                {% include 'frontend/dashboard-sidebar.html' %}
+            </div>
+
+            <!-- ========== Progress Bars & Accordions ========== -->
+           
+
+            <!-- ##### Accordians ##### -->
+            
+
+            <!-- ##### Tabs ##### -->
+            
+            </div>
+            <div class="col-md-9">
+            <!-- ========== Loaders ========== -->
+            <div class="col-12">
+                <div class="elements-title text-center mb-70">
+                    <h2>Your Profile</h2>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <!-- Loaders Area Start -->
+                <div class="our-skills-area">
+                    <div class="col-md-11 col-lg-11 py-5 bg-light">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <tr>
+                                        <th>Artist Name</th>
+                                        <th>Album</th>
+                                        <th>Song Title</th>
+                                        <th>Listen</th>
+                                        <th>Featured</th>
+                                        <th colspan="2">Action</th>
+                                    </tr>
+            
+                                    {% if list %}
+                                        {% for p in list %}
+                                            <tr>
+                                                <td>{{ p.artist }}</td>
+                                                <td>{{ p.album }}</td>
+                                                <td>{{ p.song_name }}</td>
+                                                <td>{{ p.audio }}</td>
+                                                <td>{{ p.popular }}</td>
+                                                <td><a href="{% url 'everythingmusic:edit_profile' p.slug %}">Edit</a></td>
+                                                <td><a href="{% url 'everythingmusic:delete_song' p.slug %}">Delete</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== Milestones ========== -->
+           
+
+            
+            <!-- ========== Icon Boxes ========== -->
+
+        </div>              
+        </div>
+    </div>
+</section>
+<!-- ***** Elements Area End ***** -->
+{% endblock %}
